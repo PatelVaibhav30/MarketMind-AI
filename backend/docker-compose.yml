@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: marketmind-postgres
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_DB: marketmind
+      POSTGRES_USER: marketmind
+      POSTGRES_PASSWORD: marketmind_dev_password
+
+    ports:
+      - "5433:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
