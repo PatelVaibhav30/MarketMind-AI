@@ -3,6 +3,7 @@ from fastapi import FastAPI
 
 from app.api.routes.health import router as health_router
 from app.api.routes.stocks import router as stocks_router
+from app.api.routes.market_prices import router as market_prices_router
 
 from app.core.config import settings
 from app.core.logging import logger
@@ -19,6 +20,7 @@ app = FastAPI(
 
 app.include_router(health_router)
 app.include_router(stocks_router)
+app.include_router(market_prices_router)
 
 @app.get("/")
 def root():
